@@ -5,5 +5,10 @@ import numpy as np
 st.markdown("# Dashboard 📺")
 st.sidebar.markdown("# Home Page")
 
-df = pd.read_csv(r'data/ratings.csv')
-st.write(df)
+rating_df = pd.read_csv(r'data/ratings.csv')
+grp_by_rating = rating_df.groupby('rating')['movieId'].count()
+st.subheader('Rating Distribution')
+st.bar_chart(grp_by_rating)
+
+st.subheader('Most Watched Movies')
+st.subheader('Top Rated ')
